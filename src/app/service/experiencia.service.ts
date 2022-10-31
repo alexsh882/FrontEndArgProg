@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Experiencia } from '../models/experiencia';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienciaService {
-  URL = 'https://backend-ruizdiazalejandro-ap.herokuapp.com/experiencia-laboral/';
+  // URL = 'https://backend-ruizdiazalejandro-ap.herokuapp.com/experiencia-laboral/';
+  URL = environment.url + 'experiencia-laboral/';
+
 
 
   constructor(private httpClient : HttpClient) { }
@@ -17,7 +20,7 @@ export class ExperienciaService {
   }
 
   public show(id: number) : Observable<Experiencia>{
-      return this.httpClient.get<Experiencia>(this.URL + '/show/' + id)
+      return this.httpClient.get<Experiencia>(this.URL + 'show/' + id)
   }
 
   public save(experiencia : Experiencia) : Observable<any> {

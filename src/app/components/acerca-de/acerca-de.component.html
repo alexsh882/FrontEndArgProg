@@ -4,12 +4,34 @@
             <img id="image" class="img-fluid" src="../../../assets/photo_perfil.webp">
         </div>
         <div id="title">
-            <strong>{{ persona.name }} {{ persona.last_name }}</strong>
-            <p>{{ persona.job }}</p>
+            <div *ngIf="!editDatos" class="d-flex flex-column">
+                <strong>{{ persona.name }} {{ persona.last_name }}</strong>
+                <p>{{ persona.job }}</p>
+                <fa-icon *ngIf="isLogged" (click)="editDates()" class="btn m-1" [icon]="faEdit"></fa-icon>
+            </div>
+            <div *ngIf="editDatos" class="d-flex flex-column">
+                <input class="form-control form-control-sm m-1 " [(ngModel)]="persona.name" type="text">
+                <input class="form-control form-control-sm m-1 " [(ngModel)]="persona.last_name" type="text">
+                <input class="form-control form-control-sm m-1 " [(ngModel)]="persona.job" type="text">
+                <fa-icon *ngIf="isLogged" (click)="update('datos')" class="btn m-1" [icon]="faSave"></fa-icon>
+            </div>
         </div>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-        <h2>Acerca de mí persona</h2>
-        <p>{{ persona.description }}</p>
+        <div class="d-flex">
+            <h2>Acerca de mí persona</h2>
+            <fa-icon *ngIf="isLogged && !editDescript" (click)="editDesc()" class="btn m-1" [icon]="faEdit"></fa-icon>
+            <fa-icon *ngIf="isLogged && editDescript" (click)="update('description')" class="btn m-1" [icon]="faSave"></fa-icon>
+        </div>
+        <div *ngIf="!editDescript">
+            
+            <p>{{ persona.description }}</p>
+        </div>
+        <div *ngIf="editDescript">
+            <label for="" class="form-label"></label>
+            <textarea [(ngModel)]="persona.description" class="form-control" id="description" rows="10"></textarea>
+            
+        </div>
+
     </div>
 </div>

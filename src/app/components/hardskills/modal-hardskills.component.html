@@ -1,0 +1,17 @@
+<ng-container *ngIf="show">
+    <div class="m-2">
+        <div class="m-2">
+            <strong *ngIf="!hys.id">Nueva H y S</strong>
+            <strong *ngIf="hys.id">Editar H y S</strong>
+        </div>
+        <div class="row">
+            <label for="name">Nombre</label>
+            <input [(ngModel)]="hys.name"  class="form-control m-2" type="text" id="name">
+            <label for="porcentaje">Porcentaje</label>
+            <input [(ngModel)]="hys.porcentaje" class="form-control m-2" type="number" id="porcentaje">
+            
+        </div>
+    </div>
+    <a *ngIf="hys.id == null" class="btn btn-success" (click)="store()">Crear</a>
+    <a *ngIf="hys.id != null" class="btn btn-success" (click)="update()">Guardar</a>
+</ng-container>

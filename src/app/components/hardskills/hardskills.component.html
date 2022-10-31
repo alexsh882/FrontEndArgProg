@@ -1,16 +1,35 @@
 <div class="row p-5">
     <div class="col-12 pb-2">
         <h1>Hard & Soft Skills</h1>
-    </div>
-    <div class="text-center row">
-        <div class="col">
-            <circle-progress [percent]="90" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="2"
-                [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [showTitle]="false"
-                [showUnits]="false" [imageSrc]="'../../../assets/java.png'" [showImage]="true" [imageHeight]="100"
-                [imageWidth]="100" [animationDuration]="800">
-            </circle-progress>
+        <div *ngIf="isLogged">
+            <button class="btn btn-outline-dark" (click)="hysModal.showModal()">Agregar H and S</button>
+            <app-modal-hardskills (actualizar)="loadHys()" #hysModal></app-modal-hardskills>
+
         </div>
-        <div class="col">
+    </div>
+    <div class="text-center d-flex flex-wrap justify-content-center">
+        <div *ngFor="let item of hys">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <div>
+                    <circle-progress [percent]="(item.porcentaje)" [radius]="100" [outerStrokeWidth]="16" [title]="(item.porcentaje.toString())" [subtitle]="(item.name)"
+                        [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
+                        [animation]="true" [showTitle]="true" [showUnits]="false" [imageHeight]="100" [showUnits]="true"
+                        [imageWidth]="100" [animationDuration]="800">
+                    </circle-progress>
+                </div>
+                <div>
+                    <fa-icon *ngIf="isLogged" (click)="hysEditModal.showModal()" class="btn m-1" [icon]="faEdit">
+                    </fa-icon>
+                    <fa-icon *ngIf="isLogged" (click)="delete(item.id)" class="btn m-1" [icon]="faTrash">
+                    </fa-icon>
+                </div>
+                <div class="m-2 w-50">
+                    <app-modal-hardskills #hysEditModal [hys]="item"></app-modal-hardskills>
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="col">
             <circle-progress [subtitle]="'Desarrollo de Software'" [percent]="85" [radius]="100" [outerStrokeWidth]="16"
                 [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
                 [showTitle]="false" [showUnits]="false" [imageSrc]="'../../../assets/php.png'" [showImage]="true"
@@ -23,6 +42,6 @@
                 [showTitle]="false" [showUnits]="false" [imageSrc]="'../../../assets/python.png'" [showImage]="true"
                 [imageHeight]="100" [imageWidth]="100" [animationDuration]="800">
             </circle-progress>
-        </div>
+        </div> -->
     </div>
 </div>

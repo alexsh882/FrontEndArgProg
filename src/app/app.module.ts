@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalExperienciaComponent } from './components/experiencias/modal-experiencia.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalEducacionComponent } from './components/educacion/modal-educacion.component';
+import { ModalHardskillsComponent } from './components/hardskills/modal-hardskills.component';
 
 
 
@@ -39,7 +40,8 @@ import { ModalEducacionComponent } from './components/educacion/modal-educacion.
     HomeComponent,
     LoginComponent,
     ModalExperienciaComponent,
-    ModalEducacionComponent
+    ModalEducacionComponent,
+    ModalHardskillsComponent
   ],
   imports: [
     BrowserModule,
