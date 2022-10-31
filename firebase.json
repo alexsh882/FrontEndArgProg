@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/proyecto_front_ruizdiaz_alejandro",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
