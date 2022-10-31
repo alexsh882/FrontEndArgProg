@@ -1,0 +1,100 @@
+/*  Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 575px) {
+    #image-contenedor {
+        width: 100%;
+    }
+
+    #image {
+        width: 20%;
+        position: relative;
+        top: -65px;
+    }
+
+    #title {
+        position: relative;
+        top: -50px;
+    }
+
+}
+
+@media (min-width: 576px) {
+    #image-contenedor {
+        width: 100%;
+    }
+
+    #image {
+        width: 50%;
+        position: relative;
+        top: -80px;
+    }
+
+    #title {
+        position: relative;
+        top: -60px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #image-contenedor {
+        width: 100%;
+    }
+
+    #image {
+        width: 70%;
+        position: relative;
+        top: -90px;
+    }
+
+    #title {
+        position: relative;
+        top: -70px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #image-contenedor {
+        width: 100%;
+    }
+
+    #image {
+        width: 50%;
+        position: relative;
+        top: -120px;
+    }
+
+    #title {
+        position: relative;
+        top: -100px;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    #image-contenedor {
+        width: 100%;
+    }
+
+    #image {
+        width: 50%;
+        position: relative;
+        top: -150px;
+    }
+
+    #title {
+        position: relative;
+        top: -140px;
+    }
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (max-width: 1400px) {}
+
+@media (min-width: 1401px) {}
+
+#contenedor {
+    background-color: #daecff;
+}

@@ -1,0 +1,21 @@
+#image-contenedor {
+    padding: 25px;
+}
+
+#trabajo-contenedor {
+
+    background-color: rgb(177, 225, 247);
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+
+}
+
+#trabajo{
+    padding: 20px;
+}
+
+
+#image{
+    width: 70%;
+}

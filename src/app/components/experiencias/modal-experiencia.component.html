@@ -1,0 +1,19 @@
+<ng-container *ngIf="show">
+    <div class="m-2">
+        <div class="m-2">
+            <strong *ngIf="experiencia.id">Nueva Experiencia</strong>
+        </div>
+        <div class="row">
+            <label for="name">Nombre</label>
+            <input [(ngModel)]="experiencia.name"  class="form-control m-2" type="text" id="name">
+            <label for="title">Titulo</label>
+            <input [(ngModel)]="experiencia.title" class="form-control m-2" type="text" id="title">
+            <label for="timeFor">Tiempo</label>
+            <input [(ngModel)]="experiencia.timeFor" class="form-control m-2" type="text" id="timeFor">
+            <label for="description">Descripción</label>
+            <textarea [(ngModel)]="experiencia.description"  id="description" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+    <a *ngIf="experiencia.id == null" class="btn btn-success" (click)="store()">Crear</a>
+    <a *ngIf="experiencia.id != null" class="btn btn-success" (click)="update()">Guardar</a>
+</ng-container>

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="p-5 col-xs-12">
+        <h1>Educación</h1>
+        <div *ngIf="isLogged">
+            <button class="btn btn-outline-dark" (click)="edumodal.showModal()">Agregar Educación</button>
+            <app-modal-educacion (actualizar)="loadEducacion()" #edumodal></app-modal-educacion>
+        </div>
+    </div>
+
+    <div *ngFor="let edu of educacion">
+        <div id="educacion-contenedor" class="row">
+            <div class="d-flex flex-md-row flex-column align-items-center justify-content-end">
+                <fa-icon *ngIf="isLogged" (click)="eduEditmodal.showModal()" class="btn m-1 btn-primary"
+                    [icon]="faEdit"></fa-icon>
+                <fa-icon *ngIf="isLogged" (click)="delete(edu.id)" class="btn m-1 btn-danger" [icon]="faTrash">
+                </fa-icon>
+            </div>
+            <div id="image-contenedor" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
+                <img id="image" class="img-fluid"
+                    src="https://i.pinimg.com/originals/36/d4/62/36d46285c8bc86c5f0d9238275887f88.png">
+            </div>
+            <div id="educacion" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <h3>{{ edu.name }}</h3>
+                <strong>{{ edu.timeLapse }}</strong>
+                <p>{{ edu.description }}</p>
+            </div>
+        </div>
+        <div class="m-2">
+            <app-modal-educacion #eduEditmodal [educacion]="edu"></app-modal-educacion>
+        </div>
+    </div>
+
+</div>

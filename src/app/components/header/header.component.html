@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="d-flex flex-md-row flex-column align-items-center justify-content-between">
+        <img src="../../../assets/logo_argentina_programa.png" alt="" id="logoArgProg">
+        <div class="mx-3 d-flex flex-md-row flex-column align-items-center">
+            <div class="p-3">
+                <a href="#"><img class="img-fluid mx-2" src="../../../assets/logo_facebook.png"></a>
+                <a href="#"><img class="img-fluid mx-2" src="../../../assets/logo_github.png"></a>
+                <a href="#"><img class="img-fluid mx-2" src="../../../assets/logo_instagram.png"></a>
+                <a href="#"><img class="img-fluid mx-2" src="../../../assets/logo_linkedin.png"></a>
+                <a href="#"><img class="img-fluid mx-2" src="../../../assets/logo_twitter.png"></a>
+            </div>
+            <div class="p-3">
+                
+                <button *ngIf="!isLogged" (click)="login()" type="button" class="btn btn-outline-light">Iniciar Sesión</button>
+                <button *ngIf="isLogged" (click)="logout()" type="button" class="btn btn-outline-light">Cerrar Sesión</button>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
