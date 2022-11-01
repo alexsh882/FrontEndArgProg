@@ -1,0 +1,24 @@
+<ng-container *ngIf="show">
+    <div class="m-2">
+        <div class="m-2">
+            <strong *ngIf="!proyecto.id">Nuevo proyecto</strong>
+            <strong *ngIf="proyecto.id">Editar proyecto</strong>
+        </div>
+        <div class="row">
+            <label for="name">Título</label>
+            <input [(ngModel)]="proyecto.title"  class="form-control m-2" type="text" id="title">
+            <label for="name">URL</label>
+            <input [(ngModel)]="proyecto.url"  class="form-control m-2" type="text" id="url">
+            <label for="timeLapse">Año de realización</label>
+            <input [(ngModel)]="proyecto.dateFrom" class="form-control m-2" type="text" id="dateFrom">
+            <label for="description">Descripción</label>
+            <textarea [(ngModel)]="proyecto.description"  id="description" cols="30" rows="10"></textarea>
+            <label for="description">Imagen <small class="red">(imagen obligatoria)</small></label>
+            <input class="form-control form-control-sm" id="img" name="img" type="file" (change)="uploadImg($event, proyecto.title)">
+        </div>
+    </div>
+    <div *ngIf="imagesService.url">
+    <a *ngIf="proyecto.id == null" class="btn btn-success" (click)="store()">Crear</a>
+        <a *ngIf="proyecto.id != null" class="btn btn-success" (click)="update()">Guardar</a>
+    </div>
+</ng-container>

@@ -26,6 +26,7 @@ import { ModalHardskillsComponent } from './components/hardskills/modal-hardskil
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ModalProyectosComponent } from './components/proyectos/modal-proyectos.component';
 
 
 
@@ -44,7 +45,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     LoginComponent,
     ModalExperienciaComponent,
     ModalEducacionComponent,
-    ModalHardskillsComponent
+    ModalHardskillsComponent,
+    ModalProyectosComponent
   ],
   imports: [
     BrowserModule,

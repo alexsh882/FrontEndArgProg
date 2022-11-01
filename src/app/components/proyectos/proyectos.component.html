@@ -1,18 +1,31 @@
 <div class="row p-5">
     <div class="col-12 pb-2">
         <h1>Mis Proyectos realizados</h1>
-
+        <div *ngIf="isLogged">
+            <button class="btn btn-outline-dark" (click)="proyecModal.showModal()">Agregar Proyecto Nuevo</button>
+            <app-modal-proyectos (actualizar)="loadProyectos()" #proyecModal></app-modal-proyectos>
+        </div>
     </div>
     <div class="col-xs-12">
-        <div>
-            <h3>Sistema de gestión empleados</h3>
-            <span>Realizado en el año 2020</span>
-            <p><a href="#">www.prueba.com.ar</a></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio molestias perspiciatis recusandae explicabo
-                illo sit, eligendi accusantium tenetur dignissimos culpa illum non dolor suscipit pariatur totam fugit
-                placeat ea ratione.</p>
-            <div class="text-center">
-                <img class="img-fluid shadow" src="../../../assets/portal-empleado-kenjo.png" alt="">
+        <div *ngFor="let proyecto of proyectos">
+            <div class="d-flex flex-md-row flex-column align-items-center justify-content-end">
+                <fa-icon *ngIf="isLogged" (click)="proyectoEditmodal.showModal()" class="btn m-1 btn-primary"
+                    [icon]="faEdit"></fa-icon>
+                <fa-icon *ngIf="isLogged" (click)="delete(proyecto.id)" class="btn m-1 btn-danger" [icon]="faTrash">
+                </fa-icon>
+            </div>
+            <div>
+                <h3>{{ proyecto.title }}</h3>
+                <span>{{ proyecto.dateFrom }}</span>
+                <p><a [href]="proyecto.url">{{ proyecto.url }}</a></p>
+                <p>{{ proyecto.description }}</p>
+                <div class="text-center">
+                    <img class="img-fluid shadow" [src]="proyecto.image" alt="">
+                </div>
+            </div>
+            <div class="m-2">
+
+                <app-modal-proyectos [proyecto]="proyecto" #proyectoEditmodal></app-modal-proyectos>
             </div>
         </div>
     </div>
