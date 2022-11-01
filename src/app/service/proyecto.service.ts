@@ -9,17 +9,17 @@ import { Proyectos } from '../models/proyectos';
 })
 export class ProyectoService {
 
-  URL = environment.url + 'proyectos/';
+  URL = environment.url + 'proyectos';
 
 
   constructor(private httpClient : HttpClient) { }
 
-  public index () : Observable<Proyectos[]>{
+  public index() : Observable<Proyectos[]>{
     return this.httpClient.get<Proyectos[]>(this.URL);
   }
 
   public show(id: number) : Observable<Proyectos>{
-      return this.httpClient.get<Proyectos>(this.URL + 'show/' + id)
+      return this.httpClient.get<Proyectos>(this.URL + '/show/' + id)
   }
 
   public save(proyecto : Proyectos) : Observable<any> {
@@ -29,10 +29,10 @@ export class ProyectoService {
   }
 
   public update(id: any, proyecto: Proyectos) : Observable<any>{
-    return this.httpClient.put<any>(this.URL + id + "/update", proyecto);
+    return this.httpClient.put<any>(this.URL + '/' + id + "/update", proyecto);
   }
 
   public delete(id: number) : Observable<any>{
-    return this.httpClient.delete<any>(this.URL + id + "/delete");
+    return this.httpClient.delete<any>(this.URL + '/' + id + "/delete");
   }
 }

@@ -10,7 +10,7 @@ import { Educacion } from '../models/educacion';
 export class EducacionService {
 
   // URL = 'https://backend-ruizdiazalejandro-ap.herokuapp.com/educacion/';
-  URL = environment.url + 'educacion/';
+  URL = environment.url + 'educacion';
 
 
   constructor(private httpClient: HttpClient) { }
@@ -20,7 +20,7 @@ export class EducacionService {
   }
 
   public show(id: number): Observable<Educacion> {
-    return this.httpClient.get<Educacion>(this.URL + 'show/' + id)
+    return this.httpClient.get<Educacion>(this.URL + '/show/' + id)
   }
 
   public save(educacionEducacion: Educacion): Observable<any> {
@@ -30,10 +30,10 @@ export class EducacionService {
   }
 
   public update(id: any, educacionEducacion: Educacion): Observable<any> {
-    return this.httpClient.put<any>(this.URL + id + "update", educacionEducacion);
+    return this.httpClient.put<any>(this.URL+ '/' + id + "/update", educacionEducacion);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.URL + id + "delete");
+    return this.httpClient.delete<any>(this.URL + '/' + id + "/srcdelete");
   }
 }
