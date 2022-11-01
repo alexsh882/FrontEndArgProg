@@ -23,6 +23,9 @@ import { ModalExperienciaComponent } from './components/experiencias/modal-exper
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalEducacionComponent } from './components/educacion/modal-educacion.component';
 import { ModalHardskillsComponent } from './components/hardskills/modal-hardskills.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -51,7 +54,9 @@ import { ModalHardskillsComponent } from './components/hardskills/modal-hardskil
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
